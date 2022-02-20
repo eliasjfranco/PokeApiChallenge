@@ -2,6 +2,7 @@ package com.challenge.dto.response;
 
 import com.challenge.entity.Abilities;
 import com.challenge.entity.Ability;
+import com.challenge.entity.Sprites;
 import com.challenge.entity.Type;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
@@ -11,10 +12,15 @@ import java.util.List;
 public interface PokemonInformacionResponseDto {
     int getId();
     String getName();
-    String getUrl();
     int getWeight();
+    Sprites getSprites();
+
+    interface Sprites{
+        String getFront_default();
+    }
     List<Types> getTypes();
     List<Abilities> getAbilities();
+
 
     interface Types{
         List<Type> getType();

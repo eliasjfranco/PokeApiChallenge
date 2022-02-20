@@ -22,7 +22,9 @@ public class PokemonServiceImpl implements IPokemon {
     private final static String URL_API = "https://pokeapi.co/api/v2/pokemon/?limit=20";
     private final static String URL_DESCRIPTION = "https://pokeapi.co/api/v2/characteristic/";
 
+    @Autowired
     private ObjectMapper mapper;
+    @Autowired
     private ProjectionFactory projectionFactory;
 
     @Override
