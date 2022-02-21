@@ -1,9 +1,7 @@
-package com.challenge.entity;
+package com.challenge.entity.pokemonProperties;
 
 import lombok.Getter;
 import lombok.Setter;
-
-import java.util.List;
 
 @Getter @Setter
 public class Description {

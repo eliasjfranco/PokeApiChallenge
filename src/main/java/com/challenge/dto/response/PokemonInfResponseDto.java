@@ -1,8 +1,8 @@
 package com.challenge.dto.response;
 
-import com.challenge.entity.Abilities;
-import com.challenge.entity.Sprites;
-import com.challenge.entity.Types;
+import com.challenge.entity.pokemonProperties.Abilities;
+import com.challenge.entity.pokemonProperties.Sprites;
+import com.challenge.entity.pokemonProperties.Types;
 import lombok.Getter;
 import lombok.Setter;
 import java.util.List;

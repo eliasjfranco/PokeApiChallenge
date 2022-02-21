@@ -1,6 +1,7 @@
 package com.challenge.entity;
 
 
+import com.challenge.entity.pokemonProperties.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

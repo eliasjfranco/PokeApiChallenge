@@ -1,4 +1,4 @@
-package com.challenge.entity;
+package com.challenge.entity.pokemonProperties;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;

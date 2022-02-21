@@ -3,17 +3,23 @@ package com.challenge.services.impl;
 import com.challenge.dto.response.PokemonDetallesResponseDto;
 import com.challenge.dto.response.PokemonInfResponseDto;
 import com.challenge.entity.*;
+import com.challenge.entity.pokemonProperties.Description;
+import com.challenge.entity.pokemonProperties.Descriptions;
+import com.challenge.entity.pokemonProperties.PokemonEntity;
+import com.challenge.exception.PokemonNotFoundException;
 import com.challenge.services.Interface.IPokemon;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
 import org.springframework.data.projection.ProjectionFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.stream.Collectors;
 
 @Service
@@ -28,6 +34,8 @@ public class PokemonServiceImpl implements IPokemon {
     ProjectionFactory projectionFactory;
     @Autowired
     ModelMapper modelMapper;
+    @Autowired
+    MessageSource messageSource;
 
     @Override
     public List<PokemonInfResponseDto> getAllPokemon() throws IOException {
@@ -37,14 +45,15 @@ public class PokemonServiceImpl implements IPokemon {
     }
 
     @Override
-    public PokemonDetallesResponseDto getInfo(String name) throws IOException {
+    public PokemonDetallesResponseDto getInfo(String name) throws IOException, PokemonNotFoundException {
         List<Pokemon> pokemons = getPokemones();
         Pokemon pokemon = new Pokemon();
         if(pokemons.stream().filter(p -> p.getName().equals(name)).findFirst().isPresent()){
             pokemon = pokemons.stream().filter(p -> p.getName().equals(name)).findAny().get();
             String url = URL_DESCRIPTION + pokemon.getId();
             pokemon.setDescription(getDescription(url));
-        }
+        }else
+            throw new PokemonNotFoundException(messageSource.getMessage("pokemon.error.not.found",null, Locale.getDefault()));
         return projectionFactory.createProjection(PokemonDetallesResponseDto.class, pokemon);
     }
 

@@ -1,6 +1,5 @@
-package com.challenge.entity;
+package com.challenge.entity.pokemonProperties;
 
-import com.fasterxml.jackson.annotation.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

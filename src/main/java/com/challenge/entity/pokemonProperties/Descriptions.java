@@ -1,5 +1,6 @@
-package com.challenge.entity;
+package com.challenge.entity.pokemonProperties;
 
+import com.challenge.entity.pokemonProperties.Description;
 import lombok.Getter;
 import lombok.Setter;
 
