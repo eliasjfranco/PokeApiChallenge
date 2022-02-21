@@ -25,7 +25,7 @@ import java.util.stream.Collectors;
 @Service
 public class PokemonServiceImpl implements IPokemon {
 
-    private String URL_API = "https://pokeapi.co/api/v2/pokemon/?limit=20";
+    private String URL_API = "https://pokeapi.co/api/v2/pokemon/?limit=21";
     private String URL_DESCRIPTION = "https://pokeapi.co/api/v2/characteristic/";
 
     @Autowired
